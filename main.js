@@ -11,6 +11,8 @@ aparecer en pantalla si esta
 y tacharla del abecedario
 y quitar intentos.
 fin de juego.
+
+mostrar la palabra magic completa
 */
 let palabras = ["Sonrojarse" , "Llaves", "Escuadra", "Obsequio" , "Cera", "Bicicleta", 
 "Resbalar", "Virus", "telescopio", "dinosaurio"];
@@ -33,7 +35,13 @@ let vidas = document.getElementById("vidas");
 
 let texto = document.getElementById("texto");
 
+let arriesgar = document.getElementById("arriesgar");
+
+let input = document.getElementById("input");
+
 containerAbc.addEventListener("click",botoncinio);
+
+arriesgar.addEventListener("click", arriesgazao);
 
 renderazaoABC(abecedario);
 
@@ -101,4 +109,18 @@ function renderazaoABC(abecedario){
 		palabra = palabras[random].toUpperCase();
 		wordMagic = palabra.split("");
 		magicArray = '_'.repeat(palabra.length).split('');
+	};
+
+	function arriesgazao(evento){
+		let arriesgada = input.value.toUpperCase();
+		if (arriesgada != ""){
+			if(arriesgada == palabra){
+				alert("GANASTE PUTO");
+
+			}else{
+				tries = tries - 1;
+			};
+		}else{
+			tries = tries - 1;
+		}
 	};
